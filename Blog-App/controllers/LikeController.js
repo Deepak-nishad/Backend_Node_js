@@ -10,7 +10,9 @@ exports.likePost = async (req, res) => {
             post,
             user,
         });
-        const savedLike = await Like.save();
+        console.log(like);
+        const savedLike = await like.save();
+        console.log(savedLike);
 
         // Update Post Collection basis on this
         const updatedPost = await Post.findByIdAndUpdate(
@@ -20,6 +22,8 @@ exports.likePost = async (req, res) => {
         )
             .populate("likes")
             .exec();
+
+        console.log(updatedPost);
 
         res.json({
             post: updatedPost,
@@ -38,6 +42,7 @@ exports.unlikePost = async (req, res) => {
 
         // find and delete the from like collection
         const deletedLike = await Like.findOneAndDelete({ post: post, _id: like });
+        console.log(deletedLike)
 
         // update the post collection
         const updatedPost = await Post.findByIdAndUpdate(
@@ -45,7 +50,7 @@ exports.unlikePost = async (req, res) => {
             { $pull: { likes: deletedLike._id } },
             { new: true }
         );
-
+        console.log(updatedPost);
         res.json({
             post: updatedPost,
         });

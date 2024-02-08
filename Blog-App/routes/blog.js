@@ -13,7 +13,7 @@ router.post("/Like", likePost)
 router.post("/unLike", unlikePost)
 router.post("/createComment", createComment)
 router.post("/createPost", CreatePost)
-router.post("/getAllPost", getAllPost)
+router.get("/getAllPost", getAllPost)
 
 
 

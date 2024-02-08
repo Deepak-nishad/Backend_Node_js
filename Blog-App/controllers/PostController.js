@@ -9,7 +9,9 @@ exports.CreatePost = async (req, res) => {
             title, body
         })
 
+        console.log(post);
         const savePost = await post.save();
+        console.log(savePost);
         res.json({
             post: savePost,
         })
