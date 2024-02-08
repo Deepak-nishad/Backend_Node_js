@@ -21,6 +21,7 @@
 
 - **Description:** GET Todo by id Route.
 - **Endpoint:** `http://localhost:3000/api/v1/getTodos/mongodb_id`
+- **Method:** get
 
 ### Route 4
 
